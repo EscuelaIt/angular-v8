@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 
-import { Product } from './models/product.model';
-
 interface User {
   name: string;
   age: number;
@@ -35,27 +33,6 @@ export class AppComponent {
     }
   ];
   rockBandName = '';
-
-  products: Product[] = [
-    {
-      title: 'Producto 1',
-      price: 200,
-      text: 'supe desatyno',
-      image: 'assets/images/img1.jpg',
-    },
-    {
-      title: 'Producto 2',
-      price: 200,
-      text: 'supe desatyno',
-      image: 'assets/images/img2.jpg',
-    },
-    {
-      title: 'Producto 3',
-      price: 200,
-      text: 'supe desatyno',
-      image: 'assets/images/img3.jpg',
-    },
-  ];
 
 
   changeTitle() {
