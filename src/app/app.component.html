@@ -18,7 +18,7 @@
   </li>
 </ul>
 
-<div *ngIf="rockBandName === 'nicolas'">
+<!-- <div *ngIf="rockBandName === 'nicolas'">
   es nicolas
 </div>
 
@@ -28,4 +28,12 @@
 
 <div *ngIf="rockBandName === 'camilo'">
   es camilo...
+</div> -->
+
+<div [ngSwitch]="rockBandName">
+  <p *ngSwitchCase="'nicolas'">es nicolas</p>
+  <p *ngSwitchCase="'julian'">es julian</p>
+  <p *ngSwitchCase="'camilo'">es camilo</p>
+  <p *ngSwitchDefault>no hace match</p>
 </div>
+
