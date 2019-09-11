@@ -42,11 +42,13 @@
 
 <ul>
   <li *ngFor="let user of users">
-    Nombre: {{ user.name }}
-    Edad: {{ user.age }}
-    Soltero: {{ user.isSingle }}
-    image: {{ user.avatar }}
-    <img [src]="user.avatar" alt="">
+    <div *ngIf="user.isSingle" class="avatar">
+      Nombre: {{ user.name}}
+      Edad: {{ user.age }}
+      Soltero: {{ user.isSingle ? 'Si' : 'No' }}
+      image: {{ user.avatar }}
+      <img [src]="user.avatar" alt="">
+    </div>
   </li>
 </ul>
 
