@@ -40,3 +40,13 @@
   <p *ngSwitchDefault>no hace match</p>
 </div>
 
+<ul>
+  <li *ngFor="let user of users">
+    Nombre: {{ user.name }}
+    Edad: {{ user.age }}
+    Soltero: {{ user.isSingle }}
+    image: {{ user.avatar }}
+    <img [src]="user.avatar" alt="">
+  </li>
+</ul>
+
