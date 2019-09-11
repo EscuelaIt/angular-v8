@@ -4,11 +4,28 @@
 
 <button (click)="changeTitle()">change title</button>
 
-<input type="text" [(ngModel)]="rockBandName" (keydown.enter)="addRockBand()"> {{ rockBandName }}
+<input type="text" [(ngModel)]="rockBandName" (keydown.enter)="addRockBand()">
+<h1>{{ rockBandName }}</h1>
 <button (click)="addRockBand()">add</button>
+<button (click)="empty()">empty</button>
 
 <ul>
+  <li *ngIf="rockbands.length === 0">
+    No hay bandas de rock
+  </li>
   <li *ngFor="let rock of rockbands">
     {{ rock }}
   </li>
 </ul>
+
+<div *ngIf="rockBandName === 'nicolas'">
+  es nicolas
+</div>
+
+<div *ngIf="rockBandName === 'julian'">
+  es julian...
+</div>
+
+<div *ngIf="rockBandName === 'camilo'">
+  es camilo...
+</div>
