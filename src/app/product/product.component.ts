@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 import { Product } from './../models/product.model';
 
@@ -10,5 +10,11 @@ import { Product } from './../models/product.model';
 export class ProductComponent {
 
   @Input() product: Product;
+  @Output() clickedProduct = new EventEmitter<number>();
+
+  viewDetail() {
+    console.log('viewDetail', this.product.title);
+    this.clickedProduct.emit(this.product.id);
+  }
 
 }
