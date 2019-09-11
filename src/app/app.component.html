@@ -13,8 +13,11 @@
   <li *ngIf="rockbands.length === 0">
     No hay bandas de rock
   </li>
-  <li *ngFor="let rock of rockbands">
-    {{ rock }}
+  <li *ngFor="let rock of rockbands; index as i">
+    {{ rock }} {{ i + 1 }}
+    <strong *ngIf="i === 0">este es el primero</strong>
+    <button (click)="deleteItem(i)">delete</button>
+    <button (click)="updateItem(i)">update</button>
   </li>
 </ul>
 

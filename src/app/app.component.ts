@@ -9,7 +9,7 @@ export class AppComponent {
   title = 'hola a esta primera clase as';
   name = 'nicolas';
 
-  rockbands: string[] = ['nirvana', 'los prisioneros', 'caas', 'as'];
+  rockbands: string[] = ['nirvana', 'los prisioneros'];
   rockBandName = '';
 
 
@@ -24,6 +24,14 @@ export class AppComponent {
 
   empty() {
     this.rockbands = [];
+  }
+
+  deleteItem(index: number) {
+    this.rockbands.splice(index, 1);
+  }
+
+  updateItem(index: number) {
+    this.rockbands[index] = 'se cambio';
   }
 
 }
