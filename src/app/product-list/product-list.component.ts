@@ -14,14 +14,14 @@ export class ProductListComponent implements OnInit {
       id: 1,
       title: 'Producto 1',
       price: 200,
-      text: 'supe desatyno',
+      text: 'bla bl bla blsd sd sdjsdkjsd sdksjdkklsd kljsd',
       image: 'assets/images/img1.jpg',
     },
     {
       id: 2,
       title: 'Producto 2',
       price: 200,
-      text: 'supe desatyno',
+      text: 'sdklfjsaf dfklasdfa sdfsd fsdaklfjsadfsdfklsdjfasd fsadklfjdsaf sdaflksdjafasdlñkf dsfkjas',
       image: 'assets/images/img2.jpg',
     },
     {
