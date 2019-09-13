@@ -8,6 +8,9 @@ import { ProductComponent } from './product/product.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ReversePipe } from './reverse.pipe';
 import { DateFormatPipe } from './date-format.pipe';
+import { ListComponent } from './components/list/list.component';
+import { FibonacciPipe } from './pipes/fibonacci.pipe';
+import { HighlightDirective } from './directives/highlight.directive';
 
 @NgModule({
   declarations: [
@@ -15,7 +18,10 @@ import { DateFormatPipe } from './date-format.pipe';
     ProductComponent,
     ProductListComponent,
     ReversePipe,
-    DateFormatPipe
+    DateFormatPipe,
+    ListComponent,
+    FibonacciPipe,
+    HighlightDirective
   ],
   imports: [
     BrowserModule,
