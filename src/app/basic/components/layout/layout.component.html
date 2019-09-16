@@ -1,0 +1,53 @@
+<h1>{{ title }}</h1>
+
+<p>{{ 1 + 1 }}</p>
+
+<button (click)="changeTitle()">change title</button>
+
+<input type="text" [(ngModel)]="rockBandName" (keydown.enter)="addRockBand()">
+<h1>{{ rockBandName }}</h1>
+<button (click)="addRockBand()">add</button>
+<button (click)="empty()">empty</button>
+
+<ul>
+  <li *ngIf="rockbands.length === 0">
+    No hay bandas de rock
+  </li>
+  <li *ngFor="let rock of rockbands; index as i">
+    {{ rock }} {{ i + 1 }}
+    <strong *ngIf="i === 0">este es el primero</strong>
+    <button (click)="deleteItem(i)">delete</button>
+    <button (click)="updateItem(i)">update</button>
+  </li>
+</ul>
+
+ <div *ngIf="rockBandName === 'nicolas'">
+  es nicolas
+</div>
+
+<div *ngIf="rockBandName === 'julian'">
+  es julian...
+</div>
+
+<div *ngIf="rockBandName === 'camilo'">
+  es camilo...
+</div>
+
+<div [ngSwitch]="rockBandName">
+  <p *ngSwitchCase="'nicolas'">es nicolas</p>
+  <p *ngSwitchCase="'julian'">es julian</p>
+  <p *ngSwitchCase="'camilo'">es camilo</p>
+  <p *ngSwitchDefault>no hace match</p>
+</div>
+
+<ul>
+  <li *ngFor="let user of users">
+    <div *ngIf="user.isSingle" class="avatar">
+      Nombre: {{ user.name}}
+      Edad: {{ user.age }}
+      Soltero: {{ user.isSingle ? 'Si' : 'No' }}
+      image: {{ user.avatar }}
+      <img [src]="user.avatar" alt="">
+    </div>
+  </li>
+</ul>

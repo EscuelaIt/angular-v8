@@ -10,9 +10,7 @@ interface ResponseUsers {
   info: any;
 }
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class UsersService {
 
   constructor(
