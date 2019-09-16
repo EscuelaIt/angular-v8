@@ -1,0 +1,7 @@
+<input type="text" [(ngModel)]="title" (keydown.enter)="addTodo()">
+
+<app-todo
+  (delete)="onDeleteTodo($event, i)"
+  (update)="onUpdateTodo($event, i)"
+  [todo]="todo" *ngFor="let todo of todos; index as i">
+</app-todo>
