@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { Product } from '@products/models/product.model';
+import { ProductService } from '@products/services/product.service';
 
 @Component({
   selector: 'app-product-list',
@@ -9,37 +11,20 @@ import { Product } from '@products/models/product.model';
 })
 export class ProductListComponent implements OnInit {
 
-  products: Product[] = [
-    {
-      id: 1,
-      title: 'Producto 1',
-      price: 200,
-      text: 'bla bl bla blsd sd sdjsdkjsd sdksjdkklsd kljsd',
-      image: 'assets/images/img1.jpg',
-    },
-    {
-      id: 2,
-      title: 'Producto 2',
-      price: 200,
-      text: 'sdklfjsaf dfklasdfa sdfsd fsdaklfjsadfsdfklsdjfasd fsadklfjdsaf sdaflksdjafasdlñkf dsfkjas',
-      image: 'assets/images/img2.jpg',
-    },
-    {
-      id: 3,
-      title: 'Producto 3',
-      price: 200,
-      text: 'supe desatyno',
-      image: 'assets/images/img3.jpg',
-    },
-  ];
+  products: Product[] = [];
 
-  constructor() { }
+  constructor(
+    private productService: ProductService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
+    this.products = this.productService.getAllProducts();
   }
 
   onClickedProduct(id: number) {
     console.log('clicked', id);
+    this.router.navigate(['/products', id]);
   }
 
 }

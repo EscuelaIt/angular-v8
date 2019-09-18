@@ -7,3 +7,4 @@
 <p>{{ today | dateFormat:'yyyy' }}</p>
 
 <button (click)="viewDetail()">ver el detalle</button>
+<a [routerLink]="['/products', product.id]">Ver detalle con routerLink</a>
