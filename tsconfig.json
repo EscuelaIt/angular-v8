@@ -24,7 +24,8 @@
       "@shared/*": ["src/app/shared/*"],
       "@basic/*": ["src/app/basic/*"],
       "@users/*": ["src/app/users/*"],
-      "@products/*": ["src/app/products/*"]
+      "@products/*": ["src/app/products/*"],
+      "@utils/*": ["src/app/utils/*"]
     }
   },
   "angularCompilerOptions": {

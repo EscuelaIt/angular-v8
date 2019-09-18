@@ -1,0 +1,15 @@
+<input type="email" [formControl]="emailField">
+<button [disabled]="emailField.invalid">enviar</button>
+<div *ngIf="emailField.errors && emailField.dirty">
+  <p *ngIf="emailField.hasError('required')">El campo es obligatorio</p>
+  <p *ngIf="emailField.hasError('minlength')">El campo debe tener mínimo 10 caracteres</p>
+</div>
+
+<hr />
+
+<input type="text" [formControl]="nameField">
+<button [disabled]="nameField.invalid" (click)="getValue()">click</button>
+<div *ngIf="nameField.errors && nameField.dirty">
+  <p *ngIf="nameField.hasError('required')">El campo es obligatorio</p>
+  <p *ngIf="nameField.hasError('isNicolas')">El campo debe ser 'nicolas' solo ....</p>
+</div>
