@@ -1,8 +1,15 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
+import { Page404Component } from './page404/page404.component';
+
 
 const routes: Routes = [
+  {
+    path: '',
+    redirectTo: 'products',
+    pathMatch: 'full'
+  },
   {
     path: 'todos',
     loadChildren: () => import('./todo/todo.module').then(m => m.TodoModule)
@@ -18,6 +25,10 @@ const routes: Routes = [
   {
     path: 'users',
     loadChildren: () => import('./users/users.module').then(m => m.UsersModule)
+  },
+  {
+    path: '**',
+    component: Page404Component
   }
 ];
 
