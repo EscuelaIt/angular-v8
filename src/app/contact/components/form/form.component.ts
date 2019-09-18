@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { FormControl, Validators, AbstractControl } from '@angular/forms';
 
 import { debounceTime } from 'rxjs/operators';
 
@@ -30,7 +30,7 @@ export class FormComponent implements OnInit {
 
     this.nameField = new FormControl('', [
       Validators.required,
-      MyValidators.isNicolas
+      MyValidators.isNicolas,
     ]);
   }
 
@@ -40,5 +40,6 @@ export class FormComponent implements OnInit {
   getValue() {
     console.log(this.nameField.value);
   }
+
 
 }
