@@ -19,13 +19,14 @@
       "dom"
     ],
     "paths": {
-      "@todo/*": ["src/app/todo/*"],
+      "@todo/*": ["src/app/website/todo/*"],
       "@core/*": ["src/app/core/*"],
       "@shared/*": ["src/app/shared/*"],
-      "@basic/*": ["src/app/basic/*"],
-      "@users/*": ["src/app/users/*"],
-      "@products/*": ["src/app/products/*"],
-      "@utils/*": ["src/app/utils/*"]
+      "@basic/*": ["src/app/website/basic/*"],
+      "@users/*": ["src/app/website/users/*"],
+      "@products/*": ["src/app/website/products/*"],
+      "@utils/*": ["src/app/utils/*"],
+      "@material/*": ["src/app/material/*"]
     }
   },
   "angularCompilerOptions": {

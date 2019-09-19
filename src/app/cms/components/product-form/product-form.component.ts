@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
+import { MyValidators } from '@utils/validators';
+
 @Component({
   selector: 'app-product-form',
   templateUrl: './product-form.component.html',
@@ -21,10 +23,11 @@ export class ProductFormComponent implements OnInit {
 
   private buildForm() {
     this.form = this.formBuilder.group({
-      title: ['', [Validators.required]],
+      title: ['', [Validators.required, MyValidators.isNicolas]],
       image: [''],
       price: [10000, [Validators.required]],
       text: ['', [Validators.required, Validators.minLength(100)]],
+      category: ['', [Validators.required]]
     });
 
     // this.form

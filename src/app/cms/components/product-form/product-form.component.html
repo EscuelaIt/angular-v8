@@ -1,0 +1,50 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Crear un producto</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form class="product-form" novalidate [formGroup]="form" (ngSubmit)="createProduct()">
+      <mat-form-field>
+        <input placeholder="Digite el nombre" matInput type="text" formControlName="title">
+        <mat-error *ngIf="titleField.hasError('required')" >
+          El campo es obligatorio
+        </mat-error>
+        <mat-error *ngIf="titleField.hasError('isNicolas')" >
+          Debe ser nicolas
+        </mat-error>
+      </mat-form-field>
+      <!-- <mat-form-field>
+        <div *ngIf="titleField.errors && titleField.dirty">
+          <p *ngIf="titleField.hasError('required')">El campo es obligatorio</p>
+          <p *ngIf="titleField.hasError('isNicolas')">Debe ser nicolas</p>
+        </div>
+      </!-->
+      <!-- <mat-form-field>
+        <input hidden type="file" formControlName="image">
+      </mat-form-field> -->
+      <mat-form-field>
+        <input placeholder="Digite el precio" matInput type="number" formControlName="price">
+      </mat-form-field>
+      <mat-form-field>
+        <textarea matInput placeholder="Digite el texto" formControlName="text"></textarea>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Favorite food</mat-label>
+        <mat-select formControlName="category">
+          <mat-option value="opcion 1">
+            opcion 1
+          </mat-option>
+          <mat-option value="opcion 2">
+            opcion 2
+          </mat-option>
+          <mat-option value="opcion 3">
+            opcion 2
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button (click)="createProduct()" type="button" [disabled]="form.invalid">Crear producto</button>
+  </mat-card-actions>
+</mat-card>
