@@ -1,1 +1,27 @@
-<p>login works!</p>
+<mat-card>
+  <mat-card-content>
+    <form novalidate [formGroup]="form" class="login-form">
+      <mat-form-field class="login-form">
+        <input placeholder="Digite tu correo" matInput type="email" formControlName="email">
+        <mat-error *ngIf="emailField.hasError('required')" >
+          El campo es obligatorio
+        </mat-error>
+        <mat-error *ngIf="emailField.hasError('email')" >
+          Debe ser un email valido
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input placeholder="Digite tu password" matInput type="password" formControlName="password">
+        <mat-error *ngIf="passwordField.hasError('required')" >
+          El campo es obligatorio
+        </mat-error>
+        <mat-error *ngIf="passwordField.hasError('minlength')" >
+          Minimo debe tener 8 letras
+        </mat-error>
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button (click)="login()" type="button" [disabled]="form.invalid">Ingresar</button>
+  </mat-card-actions>
+</mat-card>
