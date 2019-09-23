@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { AngularFireStorage } from '@angular/fire/storage';
 
 import { MyValidators } from '@utils/validators';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-product-form',
@@ -12,8 +14,11 @@ export class ProductFormComponent implements OnInit {
 
   form: FormGroup;
 
+  uploadPercent$: Observable<number>;
+
   constructor(
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private fireStorage: AngularFireStorage
   ) {
     this.buildForm();
   }
@@ -45,6 +50,15 @@ export class ProductFormComponent implements OnInit {
 
   get titleField() {
     return this.form.get('title');
+  }
+
+  uploadFile(event) {
+    const file = event.target.files[0];
+    const filePath = `images/${file.name}`;
+    const fileRef = this.fireStorage.ref(filePath);
+    const task = this.fireStorage.upload(filePath, file);
+
+    this.uploadPercent$ = task.percentageChanges();
   }
 
 }

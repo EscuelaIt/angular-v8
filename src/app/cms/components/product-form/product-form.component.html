@@ -19,9 +19,6 @@
           <p *ngIf="titleField.hasError('isNicolas')">Debe ser nicolas</p>
         </div>
       </!-->
-      <!-- <mat-form-field>
-        <input hidden type="file" formControlName="image">
-      </mat-form-field> -->
       <mat-form-field>
         <input placeholder="Digite el precio" matInput type="number" formControlName="price">
       </mat-form-field>
@@ -42,6 +39,8 @@
           </mat-option>
         </mat-select>
       </mat-form-field>
+      <input type="file" formControlName="image" (change)="uploadFile($event)">
+      {{ uploadPercent$ | async }}
     </form>
   </mat-card-content>
   <mat-card-actions>
