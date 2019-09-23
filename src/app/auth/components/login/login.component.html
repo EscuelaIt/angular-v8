@@ -1,7 +1,7 @@
 <mat-card>
   <mat-card-content>
     <form novalidate [formGroup]="form" class="login-form">
-      <mat-form-field class="login-form">
+      <mat-form-field class="auth-form">
         <input placeholder="Digite tu correo" matInput type="email" formControlName="email">
         <mat-error *ngIf="emailField.hasError('required')" >
           El campo es obligatorio
