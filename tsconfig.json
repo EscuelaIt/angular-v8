@@ -26,7 +26,8 @@
       "@users/*": ["src/app/website/users/*"],
       "@products/*": ["src/app/website/products/*"],
       "@utils/*": ["src/app/utils/*"],
-      "@material/*": ["src/app/material/*"]
+      "@material/*": ["src/app/material/*"],
+      "@auth/*": ["src/app/auth/*"]
     }
   },
   "angularCompilerOptions": {
