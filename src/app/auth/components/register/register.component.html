@@ -1,1 +1,39 @@
-<p>register works!</p>
+<mat-card>
+  <mat-card-content>
+    <form novalidate [formGroup]="form" class="login-form">
+      <mat-form-field>
+        <input placeholder="Digite tu correo" matInput type="email" formControlName="email">
+        <mat-error *ngIf="emailField.hasError('required')" >
+          El campo es obligatorio
+        </mat-error>
+        <mat-error *ngIf="emailField.hasError('email')" >
+          Debe ser un email valido
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input placeholder="Digite tu password" matInput type="password" formControlName="password">
+        <mat-error *ngIf="passwordField.hasError('required')" >
+          El campo es obligatorio
+        </mat-error>
+        <mat-error *ngIf="passwordField.hasError('minlength')" >
+          Minimo debe tener 8 letras
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input placeholder="Confirma tu password" matInput type="password" formControlName="confirmPassword">
+        <mat-error *ngIf="confirmPasswordField.hasError('required')" >
+          El campo es obligatorio
+        </mat-error>
+        <mat-error *ngIf="confirmPasswordField.hasError('minlength')" >
+          Minimo debe tener 8 letras
+        </mat-error>
+        <mat-error *ngIf="form.hasError('passwordNotValid')" >
+          El password no es igual
+        </mat-error>
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button (click)="register()" type="button" [disabled]="form.invalid">Registrar</button>
+  </mat-card-actions>
+</mat-card>

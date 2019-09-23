@@ -10,4 +10,13 @@ export class MyValidators {
     return null;
   }
 
+  static isValidPassword(form: AbstractControl) {
+    const password = form.get('password');
+    const confirmPassword = form.get('confirmPassword');
+    if (confirmPassword.value !== password.value) {
+      return { passwordNotValid: true };
+    }
+    return null;
+  }
+
 }
