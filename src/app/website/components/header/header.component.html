@@ -1,9 +1,16 @@
 <mat-toolbar color="primary">
-  <nav>
-    <a mat-button matTooltip="Modulo basic" routerLink="/basic">Basic</a>
-    <a mat-button matTooltip="Modulo products" routerLink="/products">Products</a>
-    <a mat-button matTooltip="Modulo todos" routerLink="/todos">Todos</a>
-    <a mat-button routerLink="/users">Users</a>
-    <a mat-button routerLink="/contact">Contact</a>
-  </nav>
+  <div class="nav-bar">
+    <nav>
+      <a mat-button matTooltip="Modulo basic" routerLink="/basic">Basic</a>
+      <a mat-button matTooltip="Modulo products" routerLink="/products"
+        >Products</a
+      >
+      <a mat-button matTooltip="Modulo todos" routerLink="/todos">Todos</a>
+      <a mat-button routerLink="/users">Users</a>
+      <a mat-button routerLink="/contact">Contact</a>
+    </nav>
+    <a routerLink="/cart" mat-raised-button [matBadge]="totalProducts$ | async" matBadgeColor="accent">
+      Carrito
+    </a>
+  </div>
 </mat-toolbar>
