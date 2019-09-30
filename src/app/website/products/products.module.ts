@@ -32,7 +32,7 @@ import { MaterialModule } from '@material/material.module';
     MaterialModule,
   ],
   providers: [
-    ProductService,
+    // ProductService,
   ]
 })
 export class ProductsModule { }

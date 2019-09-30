@@ -8,13 +8,15 @@ import { ProductFormComponent } from './components/product-form/product-form.com
 
 import { MaterialModule } from '@material/material.module';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { TableComponent } from './components/table/table.component';
 
 
 @NgModule({
   declarations: [
     NavComponent,
     ProductFormComponent,
-    DashboardComponent
+    DashboardComponent,
+    TableComponent
   ],
   imports: [
     CommonModule,

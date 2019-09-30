@@ -16,6 +16,7 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatTableModule } from '@angular/material/table';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     LayoutModule,
     MatGridListModule,
     MatMenuModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatTableModule
   ],
   exports: [
     MatCardModule,
@@ -53,7 +55,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     LayoutModule,
     MatGridListModule,
     MatMenuModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatTableModule
   ]
 })
 export class MaterialModule { }

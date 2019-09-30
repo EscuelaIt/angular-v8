@@ -3,7 +3,9 @@ import { Injectable } from '@angular/core';
 import { Product } from '@products/models/product.model';
 
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class ProductService {
 
   products: Product[] = [
