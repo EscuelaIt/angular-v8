@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, Validators, AbstractControl } from '@angular/forms';
+import { map } from 'rxjs/operators';
 
 import { TodoService } from '@todo/services/todo.service';
 import { Todo } from '@todo/models/todo.model';
+import { MyValidators } from '@utils/validators';
 
 @Component({
   selector: 'app-todo-list',
@@ -11,11 +14,17 @@ import { Todo } from '@todo/models/todo.model';
 export class TodoListComponent implements OnInit {
 
   todos: Todo[] = [];
-  title: string;
+  fieldTitle: FormControl;
 
   constructor(
     private todoService: TodoService
-  ) { }
+  ) {
+    this.fieldTitle = new FormControl(
+      null, // value
+      [Validators.minLength(3)], // sync
+      [MyValidators.hasTodo(this.todoService)]
+    );
+  }
 
   ngOnInit() {
     this.todoService.getAllTodos()
@@ -25,21 +34,24 @@ export class TodoListComponent implements OnInit {
   }
 
   addTodo() {
-    const newTodo: Todo = {
-      title: this.title,
-      id: '2000',
-      userId: '1',
-      completed: false
-    };
-    this.todoService.createTodo(newTodo)
-    .subscribe(
-      todo => {
-        this.todos.unshift(todo);
-      },
-      error => {
-        console.log(error);
-      }
-    );
+    if (this.fieldTitle.valid) {
+      const newTodo: Todo = {
+        title: this.fieldTitle.value,
+        id: '2000',
+        userId: '1',
+        completed: false
+      };
+      this.todoService.createTodo(newTodo)
+      .subscribe(
+        todo => {
+          this.todos.unshift(todo);
+          this.fieldTitle.setValue('');
+        },
+        error => {
+          console.log(error);
+        }
+      );
+    }
   }
 
   updateTodo() {
@@ -58,6 +70,18 @@ export class TodoListComponent implements OnInit {
     .subscribe(todoUpdated => {
       this.todos[index] = todoUpdated;
     });
+  }
+
+  validate(control: AbstractControl) {
+    const title = control.value;
+    return this.todoService.hasTodo(title).pipe(
+      map(hasTodo => {
+        if (hasTodo) {
+          return { hasTodo: true };
+        }
+        return null;
+      })
+    );
   }
 
 }

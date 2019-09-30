@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { Todo } from '@todo/models/todo.model';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 
 @Injectable()
@@ -29,5 +31,15 @@ export class TodoService {
   updateTodo(todo: Todo) {
     const url = `${this.path}/${todo.id}`;
     return this.http.put<Todo>(url, todo);
+  }
+
+  hasTodo(title: string): Observable<boolean> {
+    return this.getAllTodos()
+    .pipe(
+      map(todos => {
+        const todo = todos.find(item => item.title === title);
+        return todo ? true : false;
+      })
+    );
   }
 }

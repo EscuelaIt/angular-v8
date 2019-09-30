@@ -1,4 +1,7 @@
 import { AbstractControl } from '@angular/forms';
+import { TodoService } from '../website/todo/services/todo.service';
+
+import { map } from 'rxjs/operators';
 
 export class MyValidators {
 
@@ -17,6 +20,20 @@ export class MyValidators {
       return { passwordNotValid: true };
     }
     return null;
+  }
+
+  static hasTodo(service: TodoService) {
+    return (control: AbstractControl) => {
+      const title = control.value;
+      return service.hasTodo(title).pipe(
+        map(hasTodo => {
+          if (hasTodo) {
+            return { hasTodo: true };
+          }
+          return null;
+        })
+      );
+    };
   }
 
 }
