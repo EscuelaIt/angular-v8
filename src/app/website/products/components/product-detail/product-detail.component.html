@@ -1,4 +1,4 @@
-<div *ngIf="product">
+<div *ngIf="(product$ | async) as product">
   <h1>{{ product.title }}</h1>
   <img [src]="product.image" [alt]="product.title">
   <p>{{ product.text }}</p>
