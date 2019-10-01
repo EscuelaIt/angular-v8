@@ -30,6 +30,7 @@ export class TodoService {
 
   updateTodo(todo: Todo) {
     const url = `${this.path}/${todo.id}`;
+    // const url = this.path + '/' + todo.id;
     return this.http.put<Todo>(url, todo);
   }
 
