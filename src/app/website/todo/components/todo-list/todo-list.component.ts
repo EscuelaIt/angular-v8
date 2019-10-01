@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators, AbstractControl } from '@angular/forms';
 import { map } from 'rxjs/operators';
+import * as jsPDF from 'jspdf';
 
 import { TodoService } from '@todo/services/todo.service';
 import { Todo } from '@todo/models/todo.model';
@@ -82,6 +83,12 @@ export class TodoListComponent implements OnInit {
         return null;
       })
     );
+  }
+
+  generateFile() {
+    const doc = new jsPDF();
+    doc.text('Hello world!', 10, 10);
+    doc.save('a4.pdf');
   }
 
 }

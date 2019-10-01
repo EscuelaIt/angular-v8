@@ -10,3 +10,5 @@
   (update)="onUpdateTodo($event, i)"
   [todo]="todo" *ngFor="let todo of todos; index as i">
 </app-todo>
+
+<button (click)="generateFile()">generar pdf</button>
