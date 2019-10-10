@@ -5,6 +5,8 @@ import { AngularFireStorage } from '@angular/fire/storage';
 import { MyValidators } from '@utils/validators';
 import { Observable } from 'rxjs';
 
+import { ProductService } from './../../../website/products/services/product.service';
+
 @Component({
   selector: 'app-product-form',
   templateUrl: './product-form.component.html',
@@ -15,15 +17,21 @@ export class ProductFormComponent implements OnInit {
   form: FormGroup;
 
   uploadPercent$: Observable<number>;
+  categories: any[] = [];
 
   constructor(
     private formBuilder: FormBuilder,
-    private fireStorage: AngularFireStorage
+    private fireStorage: AngularFireStorage,
+    private productsService: ProductService
   ) {
     this.buildForm();
   }
 
   ngOnInit() {
+    this.productsService.getCategories()
+    .subscribe(categories => {
+      this.categories = categories;
+    });
   }
 
   private buildForm() {
@@ -31,8 +39,8 @@ export class ProductFormComponent implements OnInit {
       title: ['', [Validators.required, MyValidators.isNicolas]],
       image: [''],
       price: [10000, [Validators.required]],
-      text: ['', [Validators.required, Validators.minLength(100)]],
-      category: ['', [Validators.required]]
+      text: ['', []],
+      category_id: ['', [Validators.required]]
     });
 
     // this.form

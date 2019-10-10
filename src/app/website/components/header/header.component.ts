@@ -11,14 +11,14 @@ import { map } from 'rxjs/operators';
 })
 export class HeaderComponent implements OnInit {
 
-  totalProducts$: Observable<number>;
+  totalProducts$: Observable<string>;
 
   constructor(
     private cart: CartService
   ) {
     this.totalProducts$ = this.cart.cart$
     .pipe(
-      map(products => products.length)
+      map(products => products.length.toString())
     );
   }
 
