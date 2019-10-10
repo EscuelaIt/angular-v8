@@ -14,7 +14,10 @@ export class AuthService {
   ) { }
 
   login(email: string, password: string) {
-    return this.authFire.auth.signInWithEmailAndPassword(email, password);
+    return this.authFire.auth.signInWithEmailAndPassword(email, password)
+    .then((token) => {
+      // localStorage.setItem('token', token);
+    });
   }
 
   register(email: string, password: string) {
