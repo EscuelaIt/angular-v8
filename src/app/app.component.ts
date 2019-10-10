@@ -5,7 +5,7 @@ import { Component, OnInit, HostListener } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent{
+export class AppComponent {
 
   deferredPrompt;
 
@@ -23,10 +23,12 @@ export class AppComponent{
   }
 
   promptUserInstall() {
-    this.deferredPrompt.prompt();
-    this.deferredPrompt.userChoice.then((outcome) => {
-      console.log(outcome); // either "accepted" or "dismissed"
-    });
+    if (this.deferredPrompt) {
+      this.deferredPrompt.prompt();
+      this.deferredPrompt.userChoice.then((outcome) => {
+        console.log(outcome); // either "accepted" or "dismissed"
+      });
+    }
   }
 
 }
